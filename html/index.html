@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Controller</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            position: fixed;
+            font-size: 200%;
+        }
+
+        body {
+            width: 100vw;
+            height: 100vh;
+        }
+
+        button {
+            background-color: black;
+            color: #00ff00;
+        }
+
+        .updown {
+            width: 100vw;
+            height: 33vh;
+        }
+
+        .up {
+            left: 0;
+            top: 0;
+        }
+
+        .down {
+            left: 0;
+            bottom: 0;
+        }
+
+        .leftright {
+            width: 50vw;
+            height: 34vh;
+        }
+
+        .left {
+            left: 0;
+            top: 33vh;
+        }
+
+        .right {
+            right: 0;
+            top: 33vh;
+        }
+
+    </style>
+</head>
+<body>
+    <button class="updown up" onclick="send('front')">^</button>
+    <button class="updown down" onclick="send('back')">v</button>
+    <button class="leftright left" onclick="send('left')">&lt;</button>
+    <button class="leftright right" onclick="send('right')">&gt;</button>
+    <!-- <div></div> -->
+    <script>
+        let endpoint = location.href.replace("controller", "") + "move?";
+
+        document.addEventListener('keydown', (e) => {
+            switch(e.keyCode) {
+                case 37:
+                    send('left');
+                    break;
+                case 38:
+                    send('up');
+                    break;
+                case 39:
+                    send('right');
+                    break;
+                case 40:
+                    send('down');
+                    break;
+            }
+        });
+
+        function send(direction) {
+            console.log(get(endpoint + direction));
+        }
+
+        function get(url)
+        {
+            var xmlHttp = new XMLHttpRequest();
+            xmlHttp.open( "GET", url, false);
+            xmlHttp.send(null);
+            return xmlHttp.responseText;
+        }
+    </script>
+</body>
+</html>
