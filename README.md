@@ -1,9 +1,9 @@
-# Maze Program
+# 3D Maze Game
 
 ## Installation
 
 ```batch
-git clone https://github.com/rishavb123/MazeProgram.git
+git clone https://github.com/rishavb123/3DMazeGame.git
 ```
 
 ## Scripts
