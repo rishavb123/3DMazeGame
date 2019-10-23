@@ -30,6 +30,9 @@ public class Maze {
     public BufferedImage explorerImage;
     public boolean flip = false;
 
+    private int explorerX;
+    private int explorerY;
+
     public Maze(GameObject[][] gameObjects, int explorerX, int explorerY, Location endPos, HashMap<Location, Location> teleport) {
         int w = gameObjects.length;
         int h = gameObjects[0].length;
@@ -37,6 +40,9 @@ public class Maze {
         
         Wall.width = Application.screenWidth / w > 30? 30 : Application.screenWidth / w;
         Wall.height = Application.screenHeight / h > 30? 30 : Application.screenHeight / h;
+
+        this.explorerX = explorerX;
+        this.explorerY = explorerY;
 
         this.gameObjects = gameObjects;
         explorer = (Explorer) gameObjects[explorerX][explorerY];
@@ -432,7 +438,7 @@ public class Maze {
         }
 
         Graphics2D g2d = (Graphics2D) g;
-        //HERE
+        
         g2d.drawImage(explorerImage, (int) (Application.screenWidth + (flip? 1: -1) * 0.9 * explorerImage.getWidth()) / 2, (int) (Application.screenHeight * 0.25), (flip? -1: 1) * (int) (0.9 * explorerImage.getWidth()), (int) (0.9 * explorerImage.getHeight()), null);
         
         g.setColor(new Color(255, 0, 0, (int) (explorer.getAlpha() * 255)));
@@ -451,14 +457,6 @@ public class Maze {
         return arr2;
     }
 
-    public int transformX(int x) {
-        return wMargin3d + screenWidth3d * x / 100;
-    }
-
-    public int transformY(int y) {
-        return hMargin3d + screenHeight3d * y / 100;
-    }
-
     public int flipX(int x) {
         return Application.screenWidth - x;
     }
@@ -470,22 +468,15 @@ public class Maze {
         return x2;
     }
 
-    public void transformPoints(int[] x, int[] y) {
-        for(int i = 0; i < x.length; i++) {
-            x[i] = transformX(x[i]);
-            y[i] = transformY(y[i]);
-        }
-    }
-    public void transformPoints(int[] x, int[] y, int[] fx) {
-        for(int i = 0; i < x.length; i++) {
-            x[i] = transformX(x[i]);
-            y[i] = transformY(y[i]);
-            fx[i] = transformX(fx[i]);
-        }
-    }
-
     public boolean isDone() {
         return getExplorer().getLocation().equals(endPos);
+    }
+
+    public void reset() {
+        set(getExplorer().getLocation(), null);
+        explorer = new Explorer(explorerX, explorerY, explorer.getMaxHealth());
+        explorer.setMaze(this);
+        set(getExplorer().getLocation(), explorer);
     }
 
     public String toString() {

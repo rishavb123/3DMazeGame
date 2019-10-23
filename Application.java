@@ -94,7 +94,8 @@ public class Application extends JPanel {
 
             @Override
             public void keyPressed(KeyEvent event) {
-                // System.out.println("Pressed: " + event.getKeyCode());
+                if(maze.isDone()) return;
+                if(maze.getExplorer().isDead()) return;
                 switch(event.getKeyCode()) {
                     case 38:
                         maze.getExplorer().move();
@@ -116,11 +117,13 @@ public class Application extends JPanel {
 
             @Override
             public void keyReleased(KeyEvent event) {
-                // System.out.println("Released: " + event.getKeyCode());
+                if(event.getKeyCode() == 82) {
+                    maze.reset();
+                }
+
+                if(maze.isDone()) return;
+                if(maze.getExplorer().isDead()) return;
                 switch(event.getKeyCode()) {
-                    case 38:
-                        // maze.getExplorer().move();
-                        break;
                     case 37:
                         maze.getExplorer().turnLeft();
                         break;
@@ -154,7 +157,6 @@ public class Application extends JPanel {
 
             @Override
             public void keyTyped(KeyEvent event) {
-                // System.out.println("Typed: " + event.getKeyCode());
             }
 
         });
