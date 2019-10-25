@@ -141,11 +141,11 @@ public class Application extends JPanel {
                             if(process != null && process.isAlive()) {
                                 process.destroy();
                             } else {
-                                Runtime.getRuntime().exec("python ./python/maze_ai.py");
-                                ProcessBuilder builder = new ProcessBuilder("python", "maze_ai.py");
-                                builder.directory(new File("python"));
-                                builder.redirectError();
-                                process = builder.start();
+                                process = Runtime.getRuntime().exec("./exe/maze_ai.exe", null, new File("./exe/"));
+                                // ProcessBuilder builder = new ProcessBuilder("maze_ai.exe");
+                                // builder.directory(new File("exe"));
+                                // builder.redirectError();
+                                // process = builder.start();
                             }
                         } catch (IOException e) {
                             e.printStackTrace();
