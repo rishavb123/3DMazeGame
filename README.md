@@ -27,7 +27,7 @@ to install the dependencies.
 run
 ```
 
-This runs a batch script which will run the java application (Application.java) and will forward port [localhost:8000](localhost:8000) to port [maze.serveo.net:80](maze.serveo.net:80) for general use of the http server.
+This runs a batch script which will run the java application (Application.java) and will forward port [localhost:8000](localhost:8000) to port [maze.serveo.net:80](maze.serveo.net:80) for general use of the http server. If [maze.serveo.net:80](maze.serveo.net:80) does not work, it is likely that serveo is temporarily down and will be fixed in a couple of days. As I am writing this it is currently disabled due to phishing. The controller can still be accessed at [|your-ip|:8000/controller](|your-ip|:8000/controller).
 
 Two windows will open; one is to forward the server, while the other is the game. These two windows and the original window need to be open for all of the programs functionality to work.
 
@@ -69,7 +69,7 @@ This will just delete all the class files.
 
 If you are forwarding the server to [serveo.net](serveo.net) then you will be able to control the explorer from the url [maze.serveo.net/controller](maze.serveo.net/controller). The `UP`, `DOWN`, `LEFT`, and `RIGHT` buttons do that same thing as the keys.
 
-If you are not forwarding the server, this site can still be accessed at [locahost:8000/controller](locahost:8000/controller) or [|your-ip|/controller](|your-ip|/controller).
+If you are not forwarding the server, this site can still be accessed at [locahost:8000/controller](locahost:8000/controller) locally or [|your-ip|:8000/controller](|your-ip|:8000/controller) on the network.
 
 ## Game Mechanics
 
