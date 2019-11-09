@@ -6,6 +6,19 @@
 git clone https://github.com/rishavb123/3DMazeGame.git
 ```
 
+## Setup
+
+The AI requires python 3, which can be downloaded at [https://www.python.org/downloads/](https://www.python.org/downloads/). Make sure to check the box to add python (and PIP) to your `PATH`.
+
+Then run
+
+```batch
+pip install requests
+pip install numpy
+```
+
+to install the dependencies.
+
 ## Scripts
 
 ### Run Script
@@ -51,7 +64,6 @@ This will just delete all the class files.
 5. The `SPACE` key will toggle between the two dimensional view and the three dimensional view.
 6. The `C` key will toggle the compass in the two dimension view.
 7. The `P` key will launch a python script that uses a reinforcement learning algorithm to control the explorer using the server. It will find the optimal path (maximizing your health) to the end adapting to portals and traps.
-   * This requires python 3, which can be downloaded at [https://www.python.org/downloads/](https://www.python.org/downloads/). Make sure to check the box to add python to your `PATH`
 
 ### Maze Controller
 

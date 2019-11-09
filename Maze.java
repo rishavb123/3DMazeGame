@@ -3,6 +3,7 @@ import java.io.File;
 import java.io.IOException;
 import java.awt.Graphics;
 import java.awt.Color;
+import java.awt.Font;
 import java.nio.file.Files;
 import java.util.List;
 import java.util.HashMap;
@@ -189,18 +190,24 @@ public class Maze {
             g.setColor(Color.RED);
             switch(explorer.getDirection()) {
                 case Explorer.UP:
-                    g.fillOval((int) ((0.8 - 0.005) * Application.screenWidth), (int) (0.7 * Application.screenHeight), (int)(0.01 * Application.screenWidth), (int) (0.1 * Application.screenWidth));
+                    g.fillOval((int) ((0.8 - 0.005) * Application.screenWidth), (int) (0.7 * Application.screenHeight + 0.02 * Application.screenWidth), (int)(0.01 * Application.screenWidth), (int) (0.08 * Application.screenWidth));
                     break;
                 case Explorer.RIGHT:
-                    g.fillOval((int) ((0.8) * Application.screenWidth), (int) (0.7 * Application.screenHeight + 0.1 * Application.screenWidth), (int)(0.1 * Application.screenWidth), (int) (0.01 * Application.screenWidth));
+                    g.fillOval((int) ((0.8) * Application.screenWidth), (int) (0.7 * Application.screenHeight + 0.1 * Application.screenWidth), (int)(0.08 * Application.screenWidth), (int) (0.01 * Application.screenWidth));
                     break;
                 case Explorer.DOWN:
-                    g.fillOval((int) ((0.8 - 0.005) * Application.screenWidth), (int) (0.7 * Application.screenHeight + 0.1 * Application.screenWidth), (int) (.01 * Application.screenWidth), (int) (0.1 * Application.screenWidth));
+                    g.fillOval((int) ((0.8 - 0.005) * Application.screenWidth), (int) (0.7 * Application.screenHeight + 0.1 * Application.screenWidth), (int) (0.01 * Application.screenWidth), (int) (0.08 * Application.screenWidth));
                     break;
                 case Explorer.LEFT:
-                    g.fillOval((int) ((0.7) * Application.screenWidth), (int) (0.7 * Application.screenHeight + 0.1 * Application.screenWidth), (int)(0.1 * Application.screenWidth), (int) (0.01 * Application.screenWidth));
+                    g.fillOval((int) ((0.72) * Application.screenWidth), (int) (0.7 * Application.screenHeight + 0.1 * Application.screenWidth), (int)(0.08 * Application.screenWidth), (int) (0.01 * Application.screenWidth));
                     break;
             }
+            g.setColor(Color.BLACK);
+            g.setFont(new Font("Times New Roman", Font.BOLD, 18));
+            g.drawString("N", (int)((0.8 - 0.007) * Application.screenWidth), (int) (0.73 * Application.screenHeight));
+            g.drawString("S", (int)((0.8 - 0.007) * Application.screenWidth), (int) (0.68 * Application.screenHeight + 0.2 * Application.screenWidth));
+            g.drawString("W", (int)((0.7) * Application.screenWidth + 0.02 * Application.screenHeight), (int) (0.7 * Application.screenHeight + 0.1 * Application.screenWidth + 0.01 * Application.screenWidth));
+            g.drawString("E", (int)((0.9 - 0.01) * Application.screenWidth - 0.02 * Application.screenHeight), (int) (0.7 * Application.screenHeight + 0.1 * Application.screenWidth + 0.01 * Application.screenWidth));
         }
     }
 

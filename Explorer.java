@@ -15,6 +15,7 @@ public class Explorer extends GameObject {
 
     private int health;
     private int maxHealth;
+    private int moves = 0;
 
     public Explorer(int x, int y, int health) {
         super(x, y);
@@ -82,6 +83,7 @@ public class Explorer extends GameObject {
             maze.set(nextLoc, this);
             location = nextLoc;
             health--;
+            moves++;
         }
     }
 
@@ -146,11 +148,19 @@ public class Explorer extends GameObject {
         return maxHealth;
     }
 
+    public int getHealth() { 
+        return health;
+    }
+
     /**
      * @return the vision
      */
     public int getVision() {
         return vision;
+    }
+
+    public int getMoves() {
+        return moves;
     }
 
     /**

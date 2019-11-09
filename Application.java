@@ -9,6 +9,7 @@ import java.util.List;
 import java.awt.event.KeyEvent;
 import java.awt.Graphics;
 import java.awt.Color;
+import java.awt.Font;
 
 public class Application extends JPanel {
 
@@ -141,11 +142,10 @@ public class Application extends JPanel {
                             if(process != null && process.isAlive()) {
                                 process.destroy();
                             } else {
-                                process = Runtime.getRuntime().exec("./exe/maze_ai.exe", null, new File("./exe/"));
-                                // ProcessBuilder builder = new ProcessBuilder("maze_ai.exe");
-                                // builder.directory(new File("exe"));
-                                // builder.redirectError();
-                                // process = builder.start();
+                                ProcessBuilder builder = new ProcessBuilder("python", "maze_ai.py");
+                                builder.directory(new File("python"));
+                                builder.redirectError();
+                                process = builder.start();
                             }
                         } catch (IOException e) {
                             e.printStackTrace();
@@ -171,6 +171,17 @@ public class Application extends JPanel {
         }
     }
 
+    public void centerString(String s, int y, int fontSize, Graphics g) {
+        centerString(s, y, fontSize, g, false);
+    }
+
+
+    public void centerString(String s, int y, int fontSize, Graphics g, boolean bold) {
+        g.setFont(new Font("Times New Roman", bold? Font.BOLD : Font.PLAIN, fontSize));
+        int width = g.getFontMetrics().stringWidth(s);
+        g.drawString(s, (screenWidth - width) / 2, y);
+    }
+
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
 
@@ -178,16 +189,22 @@ public class Application extends JPanel {
         g.fillRect(0, 0, screenWidth, screenHeight);
 
         if(maze.isDone()) {
-            g.setColor(Color.WHITE);
-            g.drawString("Rishav is cool not", 20, 20);
+            g.setColor(Color.ORANGE);
+            centerString("Great Job! You Finished in " + maze.getExplorer().getMoves() + " moves", 200, 36, g);
+            centerString("You still had " + (int) ((double)maze.getExplorer().getHealth() * 100 / maze.getExplorer().getMaxHealth()) + " percent of your health left", 300, 36, g);
+            centerString("Click R to restart", 400, 18, g);
         } else if(maze.getExplorer().isDead()) {
-            g.setColor(Color.WHITE);
-            g.drawString("Rishav is deaded", 20, 20);
+            g.setColor(Color.RED);
+            centerString("Game Over", 200, 36, g);
+            centerString("You died. Your body will be stuck in this maze forever, and your suit is dirty. How sad.", 300, 20, g);
+            centerString("Click R to restart", 400, 18, g);
         } else {
             if(show3d)
                 maze.draw3d(g);
             else
                 maze.draw(g);
+            g.setColor(Color.YELLOW);
+            centerString("Moves: " + maze.getExplorer().getMoves() + "; Health: " + (int) ((double)maze.getExplorer().getHealth() * 100 / maze.getExplorer().getMaxHealth()), 20, 18, g, true);
         }
         
     }
