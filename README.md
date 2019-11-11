@@ -17,7 +17,14 @@ pip install requests
 pip install numpy
 ```
 
-to install the dependencies.
+in command prompt to install the dependencies.
+
+Also, the server uses an ssh reverse proxy to forward the server port to a url, so ssh must be enabled to use the forwarding capabilities. To check if ssh is enabled run
+
+```batch
+ssh
+```
+If it says "'ssh' is not recognized as an internal or external command, operable program or batch file.", then ssh is not enabled yet. On Macs, Linux, and most Windows devices, it should be auto-enabled, but on some older windows machines you have to manually enable. To do so follow this link: [https://www.howtogeek.com/336775/how-to-enable-and-use-windows-10s-built-in-ssh-commands/](https://www.howtogeek.com/336775/how-to-enable-and-use-windows-10s-built-in-ssh-commands/).
 
 ## Scripts
 
