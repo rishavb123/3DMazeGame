@@ -27,7 +27,7 @@ to install the dependencies.
 run
 ```
 
-This runs a batch script which will run the java application (Application.java) and will forward port [localhost:8000](localhost:8000) to port [maze.serveo.net:80](maze.serveo.net:80) for general use of the http server. If [maze.serveo.net:80](maze.serveo.net:80) does not work, it is likely that serveo is temporarily down and will be fixed in a couple of days. As I am writing this it is currently disabled due to phishing. The controller can still be accessed at [|your-ip|:8000/controller](|your-ip|:8000/controller).
+This runs a batch script which will run the java application (Application.java) and will forward port [localhost:8000](https://localhost:8000) to port [maze.serveo.net:80](https://maze.serveo.net:80) for general use of the http server. If [maze.serveo.net:80](https://maze.serveo.net:80) does not work, it is likely that serveo is temporarily down and will be fixed in a couple of days. As I am writing this it is currently disabled due to phishing. The controller can still be accessed at [|your-ip|:8000/controller](https://|your-ip|:8000/controller).
 
 Two windows will open; one is to forward the server, while the other is the game. These two windows and the original window need to be open for all of the programs functionality to work.
 
@@ -41,13 +41,13 @@ run one
 
 will run the program using the maze stored in [mazes/one.txt](mazes/one.txt). If this parameter is left blank, the program will default to [mazes/seven.txt](mazes/seven.txt).
 
-A second parameter is whether or not to forward the server to [serveo.net](serveo.net).
+A second parameter is whether or not to forward the server to [serveo.net](https://serveo.net).
 
 ```batch
 run one X
 ```
 
-will run the program on [mazes/one.txt](mazes/one.txt) and will not forward the server to serveo.net. So only one window will open and you will not be able to control the player from [maze.serveo.net/controller](maze.serveo.net/controller). The server is still accessible on localhost and the computers ip address.
+will run the program on [mazes/one.txt](mazes/one.txt) and will not forward the server to serveo.net. So only one window will open and you will not be able to control the player from [maze.serveo.net/controller](https://maze.serveo.net/controller). The server is still accessible on localhost and the computers ip address.
 
 ### Clean Script
 
@@ -67,9 +67,9 @@ This will just delete all the class files.
 
 ### Maze Controller
 
-If you are forwarding the server to [serveo.net](serveo.net) then you will be able to control the explorer from the url [maze.serveo.net/controller](maze.serveo.net/controller). The `UP`, `DOWN`, `LEFT`, and `RIGHT` buttons do that same thing as the keys.
+If you are forwarding the server to [serveo.net](https://serveo.net) then you will be able to control the explorer from the url [maze.serveo.net/controller](https://maze.serveo.net/controller). The `UP`, `DOWN`, `LEFT`, and `RIGHT` buttons do that same thing as the keys.
 
-If you are not forwarding the server, this site can still be accessed at [locahost:8000/controller](locahost:8000/controller) locally or [|your-ip|:8000/controller](|your-ip|:8000/controller) on the network.
+If you are not forwarding the server, this site can still be accessed at [locahost:8000/controller](https://locahost:8000/controller) locally or [|your-ip|:8000/controller](https://|your-ip|:8000/controller) on the network.
 
 ## Game Mechanics
 
